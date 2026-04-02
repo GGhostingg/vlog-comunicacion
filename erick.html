@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil Erick</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1VJm5kJHVw8+LL+1ZiowH++4df5uVBXxEehumOhv1Vd4iRAHWY8MklND6U9G5mcbaiYpJZwciMJw7Z4xJbeyrg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Perfil del Integrante</h1>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav id="menu">
+      <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+      <a href="gabriel.html"><i class="fas fa-user"></i> Perfil Gabriel</a>
+      <a href="erick.html"><i class="fas fa-user"></i> Perfil Erick</a>
+      <a href="#descripcion"><i class="fas fa-info-circle"></i> Descripción</a>
+      <a href="#aprendido"><i class="fas fa-graduation-cap"></i> Lo Aprendido</a>
+      <a href="#futuro"><i class="fas fa-rocket"></i> Proyección Futura</a>
+    </nav>
+  </header>
+  <div id="menuOverlay" class="menu-overlay" onclick="closeMenu()" hidden></div>
+
+  <main>
+    <section class="section" id="descripcion">
+      <article class="section-card">
+        <h2 class="section-title"><i class="fas fa-user-circle"></i> Erick Camargo</h2>
+        <p>
+          Personalmente, esta materia me permitió comprender que la comunicación es una habilidad muy importante tanto en la vida personal como en el ámbito profesional. Aprendí que no solo se trata de hablar, sino también de saber escuchar, interpretar mensajes y expresar ideas con respeto y claridad. Considero que estos aprendizajes serán muy útiles en mi formación como desarrollador de software, ya que el trabajo en tecnología requiere una buena comunicación para trabajar en equipo y entender las necesidades de los usuarios.
+        </p>
+      </article>
+    </section>
+
+    <section class="section" id="reto">
+      <article class="section-card">
+        <h2 class="section-title"><i class="fas fa-lightbulb"></i> Reflexión del reto: Tipos de Comunicación</h2>
+        <p>
+          Durante el desarrollo del reto sobre los tipos de comunicación comprendimos que existen diferentes formas de transmitir un mensaje, como la comunicación verbal, no verbal y escrita. Este ejercicio nos permitió reflexionar sobre la importancia de expresarnos con claridad y también de saber interpretar correctamente los mensajes de los demás. Entendimos que una buena comunicación es fundamental para mejorar las relaciones personales, académicas y profesionales.
+        </p>
+      </article>
+    </section>
+
+    <section class="section" id="evidencias">
+      <h2 class="section-title"><i class="fas fa-file-alt"></i> Evidencias</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3><i class="fas fa-file-pdf"></i> Función Referencial</h3>
+          <p class="text">PDF sobre la función referencial del lenguaje.</p>
+          <a href="/pdfs_de_erick/funciones del Lenguaje.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-file-pdf"></i> Sapa Caramelo</h3>
+          <p class="text">Actividad en clase sobre lo que se oculta de cada persona</p>
+          <a href="/pdfs_de_erick/la sapa caramelo.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-file-pdf"></i> Lenguaje de las Microexpresiones</h3>
+          <p class="text">Estudio sobre microexpresiones.</p>
+          <a href="/pdfs_de_erick/microexpresiones.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-file-pdf"></i> Tipos de Comunicación</h3>
+          <p class="text">Clasificación y ejemplos de tipos de comunicación.</p>
+          <a href="/pdfs_de_erick/tipos de comunicacion.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="aprendido">
+      <article class="section-card">
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Lo que Aprendí</h2>
+        <p>
+          En esta materia, aprendí la importancia de la comunicación asertiva, verbal y no verbal. Comprendí cómo las microexpresiones revelan emociones verdaderas y cómo adaptar el mensaje según el contexto. Estos conocimientos me han ayudado a mejorar mis interacciones personales y profesionales.
+        </p>
+      </article>
+    </section>
+
+    <section class="section" id="futuro">
+      <article class="section-card">
+        <h2 class="section-title"><i class="fas fa-rocket"></i> Proyección a Futuro</h2>
+        <p>
+          Mi proyección futura incluye especializarme en desarrollo backend, integrando habilidades de comunicación para liderar equipos y gestionar proyectos. Aspiro a trabajar en empresas tecnológicas, contribuyendo a soluciones innovadoras mientras mejoro continuamente mis competencias en comunicación efectiva.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

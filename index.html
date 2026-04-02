@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vlog - El Arte de la Comunicación</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1VJm5kJHVw8+LL+1ZiowH++4df5uVBXxEehumOhv1Vd4iRAHWY8MklND6U9G5mcbaiYpJZwciMJw7Z4xJbeyrg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Vlog: El Arte de la Comunicación</h1>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav id="menu">
+      <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+      <a href="gabriel.html"><i class="fas fa-user"></i> Perfil Gabriel</a>
+      <a href="erick.html"><i class="fas fa-user"></i> Perfil Erick</a>
+      <a href="#temas"><i class="fas fa-book-open"></i> Temas</a>
+      <a href="#reto"><i class="fas fa-lightbulb"></i> Reflexión</a>
+    </nav>
+  </header>
+  <div id="menuOverlay" class="menu-overlay" onclick="closeMenu()" hidden></div>
+
+  <main>
+    <section class="section intro" id="intro">
+      <article class="section-card">
+        <h2 class="section-title"><i class="fas fa-comments"></i> ¿Qué es la comunicación?</h2>
+        <p>
+          La comunicación es el proceso mediante el cual las personas transmiten ideas,
+          pensamientos, emociones e información. No consiste solamente en hablar,
+          también implica escuchar, interpretar y comprender los mensajes de los demás.
+        </p>
+        <p>
+          Es fundamental porque permite construir relaciones, resolver conflictos y
+          trabajar en equipo. Con comunicación asertiva se fomenta convivencia, respeto
+          y comprensión entre las personas.
+        </p>
+      </article>
+    </section>
+
+    <section class="section" id="temas">
+      <h2 class="section-title"><i class="fas fa-book"></i> Temáticas Vistas en Formación</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3><i class="fas fa-language"></i> Funciones del lenguaje</h3>
+          <p class="text">Exploramos la función referencial, emotiva, apelativa y más.</p>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-exchange-alt"></i> Tipos de comunicación</h3>
+          <p class="text">Verbal, no verbal, escrita y digital como canales clave.</p>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-handshake"></i> Comunicación asertiva</h3>
+          <p class="text">Herramientas para dialogar con respeto y claridad.</p>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-users"></i> Lenguaje verbal y no verbal</h3>
+          <p class="text">Conexión entre lo que decimos y cómo lo mostramos.</p>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-eye"></i> Microexpresiones</h3>
+          <p class="text">Lectura de emociones verdaderas en situaciones reales.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="reto">
+      <article class="section-card">
+        <h2 class="section-title"><i class="fas fa-brain"></i> Reflexión final</h2>
+        <p>
+          Durante el desarrollo de la materia de comunicación en el programa ADSO, comprendimos que la comunicación es una habilidad fundamental para cualquier profesional, especialmente en el área de desarrollo de software. A través de esta formación aprendimos la importancia de expresar ideas con claridad, escuchar activamente y trabajar en equipo para lograr mejores resultados. Esta competencia tiene una gran afinidad con la carrera, ya que en el desarrollo de software es necesario comunicarse constantemente con compañeros, instructores y clientes para comprender necesidades, resolver problemas y construir soluciones tecnológicas de manera eficiente.   
+        </p>
+      </article>
+    </section>
+
+    <section class="section" id="integrantes">
+      <h2 class="section-title"><i class="fas fa-users"></i> Integrantes</h2>
+      <div class="grid-3">
+        <article class="card profile-card">
+          <img src="gabriel.jpg" alt="Gabriel Mesa" />
+          <div class="info">
+            <h3><i class="fas fa-camera-retro"></i> Gabriel Mesa</h3>
+            <p class="role">Desarrollador en software Backend y frontend</p>
+            <p>aprendiz de Análisis y Desarrollo de Software, autodidacta por naturaleza y con muchas ganas de crecer en el mundo tech. Se caracteriza por su iniciativa, su disposición para aprender y su interés en desarrollar soluciones tanto del lado del cliente como del servidor.</p>
+            <a href="gabriel.html" class="cta"><i class="fas fa-arrow-right"></i> Ver perfil</a>
+          </div>
+        </article>
+
+        <article class="card profile-card">
+          <img src="erick.jpeg" alt="Erick Camargo" />
+          <div class="info">
+            <h3><i class="fas fa-video"></i> Erick Camargo</h3>
+            <p class="role">Desarrollador en software Backend</p>
+            <p>Desarrollador web Full Stack. Se caracteriza por su compromiso con el aprendizaje de programación, lógica y desarrollo de aplicaciones.</p>
+            <a href="erick.html" class="cta"><i class="fas fa-arrow-right"></i> Ver perfil</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

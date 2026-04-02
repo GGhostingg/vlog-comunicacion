@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil Gabriel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1VJm5kJHVw8+LL+1ZiowH++4df5uVBXxEehumOhv1Vd4iRAHWY8MklND6U9G5mcbaiYpJZwciMJw7Z4xJbeyrg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Perfil del Integrante</h1>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav id="menu">
+      <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+      <a href="gabriel.html"><i class="fas fa-user"></i> Perfil Gabriel</a>
+      <a href="erick.html"><i class="fas fa-user"></i> Perfil Erick</a>
+      <a href="#descripcion"><i class="fas fa-info-circle"></i> Descripción</a>
+      <a href="#aprendido"><i class="fas fa-graduation-cap"></i> Lo Aprendido</a>
+      <a href="#futuro"><i class="fas fa-rocket"></i> Proyección Futura</a>
+    </nav>
+  </header>
+  <div id="menuOverlay" class="menu-overlay" onclick="closeMenu()" hidden></div>
+
+  <main>
+    <section class="section" id="descripcion">
+      <article class="section-card">
+        <h2 class="section-title"><i class="fas fa-user-circle"></i> Gabriel Mesa</h2>
+        <p>
+          Gabriel Mesa es aprendiz del programa Análisis y Desarrollo de Software.
+          Se caracteriza por su compromiso con el aprendizaje, el trabajo en
+          equipo y el desarrollo de habilidades que le permitan mejorar su
+          desempeño académico y profesional.
+        </p>
+      </article>
+    </section>
+
+    <section class="section" id="reto">
+      <article class="section-card">
+        <h2 class="section-title"><i class="fas fa-lightbulb"></i> Reflexión del reto: Tipos de Comunicación</h2>
+        <p>
+          El reto sobre los tipos de comunicación permitió comprender que existen
+          diversas formas de transmitir información. Aprendí que la comunicación
+          verbal, no verbal y escrita influyen en la manera en que los mensajes
+          son interpretados por las personas.
+        </p>
+      </article>
+    </section>
+
+    <section class="section" id="evidencias">
+      <h2 class="section-title"><i class="fas fa-file-alt"></i> Evidencias</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3><i class="fas fa-file-pdf"></i> Función Referencial</h3>
+          <p class="text">Documento PDF sobre la función referencial del lenguaje.</p>
+          <a href="/pdfs_de_gabriel/funcion_referencial.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-file-pdf"></i> Sapa Caramelo</h3>
+          <p class="text">Análisis de comunicación en contexto.</p>
+          <a href="/pdfs_de_gabriel/sapa_caramelo.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-file-pdf"></i> Lenguaje de las Microexpresiones</h3>
+          <p class="text">Estudio sobre microexpresiones faciales.</p>
+          <a href="/pdfs_de_gabriel/microexpresiones.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-file-pdf"></i> Tipos de Comunicación</h3>
+          <p class="text">Clasificación y ejemplos de tipos de comunicación.</p>
+          <a href="/pdfs_de_gabriel/tipos_comunicacion.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="aprendido">
+      <article class="section-card">
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Lo que Aprendi</h2>
+        <p>
+          Durante este trimestre aprendí que la comunicación es una habilidad
+          fundamental en cualquier entorno. Comprendí que escuchar activamente,
+          expresar ideas con respeto y entender diferentes puntos de vista son
+          aspectos esenciales para una comunicación efectiva.
+        </p>
+      </article>
+    </section>
+
+    <section class="section" id="futuro">
+      <article class="section-card">
+        <h2 class="section-title"><i class="fas fa-rocket"></i> Proyección a Futuro</h2>
+        <p>
+          En el futuro, espero aplicar estos conocimientos en proyectos de desarrollo
+          de software, mejorando la comunicación en equipos remotos y con clientes.
+          Mi meta es convertirme en un desarrollador full-stack que no solo codifica
+          bien, sino que también comunica ideas de manera clara y efectiva.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
