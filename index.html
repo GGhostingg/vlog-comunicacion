@@ -4,102 +4,517 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vlog - El Arte de la Comunicación</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1VJm5kJHVw8+LL+1ZiowH++4df5uVBXxEehumOhv1Vd4iRAHWY8MklND6U9G5mcbaiYpJZwciMJw7Z4xJbeyrg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Blog - El Arte de la Comunicación</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <header>
-    <h1>Vlog: El Arte de la Comunicación</h1>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="header-left">
+      <h1><i class="fas fa-blog"></i> Blog Comunicación</h1>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar temas, evidencias..." autocomplete="off" />
+      <button class="search-btn" onclick="performSearch()" aria-label="Buscar"><i class="fas fa-magnifying-glass"></i></button>
+      <div id="searchResults" class="search-results" hidden></div>
+    </div>
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema" title="Modo oscuro/claro">
+        <i class="fas fa-moon"></i>
+      </button>
+      <div class="menu-icon" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></div>
+    </div>
     <nav id="menu">
       <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
       <a href="gabriel.html"><i class="fas fa-user"></i> Perfil Gabriel</a>
       <a href="erick.html"><i class="fas fa-user"></i> Perfil Erick</a>
       <a href="#temas"><i class="fas fa-book-open"></i> Temas</a>
-      <a href="#reto"><i class="fas fa-lightbulb"></i> Reflexión</a>
+      <a href="#videos"><i class="fas fa-play-circle"></i> Videos</a>
+      <a href="#galeria"><i class="fas fa-images"></i> Galería</a>
+      <a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a>
     </nav>
   </header>
   <div id="menuOverlay" class="menu-overlay" onclick="closeMenu()" hidden></div>
 
+  <!-- Indicador de progreso de scroll -->
+  <div id="scrollProgress" class="scroll-progress"></div>
+
   <main>
-    <section class="section intro" id="intro">
-      <article class="section-card">
-        <h2 class="section-title"><i class="fas fa-comments"></i> ¿Qué es la comunicación?</h2>
-        <p>
-          La comunicación es el proceso mediante el cual las personas transmiten ideas,
-          pensamientos, emociones e información. No consiste solamente en hablar,
-          también implica escuchar, interpretar y comprender los mensajes de los demás.
+    <!-- HERO SECTION -->
+    <section class="hero" id="intro">
+      <div class="hero-content">
+        <span class="hero-badge"><i class="fas fa-star"></i> Bienvenidos al Blog</span>
+        <h1 class="hero-title">El Arte de la Comunicación</h1>
+        <p class="hero-subtitle">
+          Explorando las claves para conectar, comprender y construir relaciones a través del diálogo. Un recorrido por las competencias comunicativas que todo profesional del software necesita dominar.
         </p>
+        <div class="hero-actions">
+          <a href="#temas" class="btn btn-primary"><i class="fas fa-book-open"></i> Explorar temas</a>
+          <a href="#integrantes" class="btn btn-secondary"><i class="fas fa-users"></i> Conoce al equipo</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-circle hero-circle--1"></div>
+        <div class="hero-circle hero-circle--2"></div>
+        <div class="hero-circle hero-circle--3"></div>
+      </div>
+    </section>
+
+    <!-- DATO CURIOSO -->
+    <section class="section" id="dato-curioso">
+      <article class="section-card highlight-card">
+        <div class="highlight-badge"><i class="fas fa-lightbulb"></i> ¿Sabías que...?</div>
         <p>
-          Es fundamental porque permite construir relaciones, resolver conflictos y
-          trabajar en equipo. Con comunicación asertiva se fomenta convivencia, respeto
-          y comprensión entre las personas.
+          Según el estudio de Albert Mehrabian, profesor de psicología en UCLA, el <strong>55% de la comunicación</strong> de emociones se transmite a través del lenguaje corporal, el <strong>38% por el tono de voz</strong> y solo el <strong>7% por las palabras</strong>. Esto significa que <em>cómo</em> decimos algo tiene mucho más impacto que <em>qué</em> decimos.
         </p>
       </article>
     </section>
 
+    <!-- ¿QUÉ ES LA COMUNICACIÓN? -->
+    <section class="section intro" id="que-es">
+      <article class="section-card">
+        <h2 class="section-title"><i class="fas fa-comments"></i> ¿Qué es la comunicación?</h2>
+        <p>
+          La comunicación es el proceso mediante el cual las personas transmiten ideas, pensamientos, emociones e información. No consiste solamente en hablar — también implica <strong>escuchar activamente</strong>, interpretar señales y comprender los mensajes de los demás en su contexto real.
+        </p>
+        <p>
+          Es fundamental porque permite <strong>construir relaciones</strong>, resolver conflictos, trabajar en equipo y liderar con empatía. Con comunicación asertiva se fomenta la convivencia, el respeto y la comprensión mutua entre las personas, sin importar las diferencias culturales o ideológicas.
+        </p>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-paper-plane"></i></div>
+            <h4>Emisor</h4>
+            <p>Quien origina y envía el mensaje con una intención clara.</p>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-message"></i></div>
+            <h4>Mensaje</h4>
+            <p>La información, idea o emoción que se desea transmitir.</p>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-route"></i></div>
+            <h4>Canal</h4>
+            <p>El medio por el cual viaja el mensaje: oral, escrito, digital.</p>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-headphones"></i></div>
+            <h4>Receptor</h4>
+            <p>Quien recibe, interpreta y responde al mensaje recibido.</p>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-rotate-right"></i></div>
+            <h4>Retroalimentación</h4>
+            <p>La respuesta que confirma que el mensaje fue comprendido.</p>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-volume-xmark"></i></div>
+            <h4>Ruido</h4>
+            <p>Cualquier interferencia que distorsiona el mensaje original.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- TEMÁTICAS CON FILTROS -->
     <section class="section" id="temas">
       <h2 class="section-title"><i class="fas fa-book"></i> Temáticas Vistas en Formación</h2>
-      <div class="grid-3">
-        <article class="card">
+
+      <!-- Filtros por categoría -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all"><i class="fas fa-layer-group"></i> Todos</button>
+        <button class="filter-btn" data-filter="lenguaje"><i class="fas fa-language"></i> Lenguaje</button>
+        <button class="filter-btn" data-filter="comunicacion"><i class="fas fa-comments"></i> Comunicación</button>
+        <button class="filter-btn" data-filter="emociones"><i class="fas fa-face-smile"></i> Emociones</button>
+      </div>
+
+      <div class="grid-3" id="temasGrid">
+        <article class="card filterable" data-category="lenguaje">
+          <span class="card-tag">Lenguaje</span>
           <h3><i class="fas fa-language"></i> Funciones del lenguaje</h3>
-          <p class="text">Exploramos la función referencial, emotiva, apelativa y más.</p>
+          <p class="text">La lengua tiene múltiples propósitos: la <strong>función referencial</strong> transmite datos objetivos, la <strong>emotiva</strong> expresa sentimientos, la <strong>apelativa</strong> busca influir en el receptor, y la <strong>poética</strong> embellece el mensaje. Cada situación comunicativa activa una función diferente.</p>
         </article>
-        <article class="card">
-          <h3><i class="fas fa-exchange-alt"></i> Tipos de comunicación</h3>
-          <p class="text">Verbal, no verbal, escrita y digital como canales clave.</p>
+        <article class="card filterable" data-category="comunicacion">
+          <span class="card-tag">Comunicación</span>
+          <h3><i class="fas fa-share-nodes"></i> Tipos de comunicación</h3>
+          <p class="text"><strong>Verbal:</strong> usa palabras (oral o escrita). <strong>No verbal:</strong> gestos, postura, mirada. <strong>Escrita:</strong> deja registro permanente. <strong>Digital:</strong> mediados por tecnología como chats, videollamadas y redes sociales.</p>
         </article>
-        <article class="card">
+        <article class="card filterable" data-category="comunicacion">
+          <span class="card-tag">Comunicación</span>
           <h3><i class="fas fa-handshake"></i> Comunicación asertiva</h3>
-          <p class="text">Herramientas para dialogar con respeto y claridad.</p>
+          <p class="text">Expresar pensamientos y necesidades de forma <strong>clara, directa y respetuosa</strong>, sin agredir ni someterse. Implica empatía, escucha activa y la capacidad de decir "no" con firmeza y cortesía. Es la base de las relaciones profesionales saludables.</p>
         </article>
-        <article class="card">
+        <article class="card filterable" data-category="lenguaje">
+          <span class="card-tag">Lenguaje</span>
           <h3><i class="fas fa-users"></i> Lenguaje verbal y no verbal</h3>
-          <p class="text">Conexión entre lo que decimos y cómo lo mostramos.</p>
+          <p class="text">Lo que decimos (verbal) y cómo lo mostramos (no verbal) deben ser <strong>congruentes</strong>. Un "estoy bien" con los brazos cruzados y mirada baja genera desconfianza. La coherencia entre ambos refuerza la credibilidad del mensaje.</p>
         </article>
-        <article class="card">
-          <h3><i class="fas fa-eye"></i> Microexpresiones</h3>
-          <p class="text">Lectura de emociones verdaderas en situaciones reales.</p>
+        <article class="card filterable" data-category="emociones">
+          <span class="card-tag">Emociones</span>
+          <h3><i class="fas fa-face-smile"></i> Microexpresiones</h3>
+          <p class="text">Son movimientos faciales involuntarios de menos de medio segundo que revelan <strong>emociones genuinas</strong>: alegría, tristeza, enojo, sorpresa, miedo y asco. Identificarlas permite leer lo que realmente sienten las personas, más allá de sus palabras.</p>
         </article>
+      </div>
+      <div id="noFilterResults" class="no-results" hidden>
+        <i class="fas fa-magnifying-glass"></i>
+        <p>No se encontraron temas con este filtro.</p>
       </div>
     </section>
 
+    <!-- ESTADÍSTICAS -->
+    <section class="section" id="stats">
+      <h2 class="section-title"><i class="fas fa-chart-bar"></i> La Comunicación en Números</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">55%</div>
+          <div class="stat-label">del mensaje emocional se transmite por el lenguaje corporal</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">86%</div>
+          <div class="stat-label">de los fracasos laborales se deben a fallas de comunicación</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">7</div>
+          <div class="stat-label">microexpresiones faciales universales identificadas por Ekman</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">38%</div>
+          <div class="stat-label">del impacto emocional depende del tono de voz utilizado</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFLEXIÓN FINAL -->
     <section class="section" id="reto">
       <article class="section-card">
         <h2 class="section-title"><i class="fas fa-brain"></i> Reflexión final</h2>
         <p>
-          Durante el desarrollo de la materia de comunicación en el programa ADSO, comprendimos que la comunicación es una habilidad fundamental para cualquier profesional, especialmente en el área de desarrollo de software. A través de esta formación aprendimos la importancia de expresar ideas con claridad, escuchar activamente y trabajar en equipo para lograr mejores resultados. Esta competencia tiene una gran afinidad con la carrera, ya que en el desarrollo de software es necesario comunicarse constantemente con compañeros, instructores y clientes para comprender necesidades, resolver problemas y construir soluciones tecnológicas de manera eficiente.   
+          Durante el desarrollo de la materia de comunicación en el programa ADSO, comprendimos que la comunicación es una <strong>habilidad fundamental</strong> para cualquier profesional, especialmente en el área de desarrollo de software. A través de esta formación aprendimos la importancia de expresar ideas con claridad, escuchar activamente y trabajar en equipo para lograr mejores resultados.
+        </p>
+        <p>
+          Esta competencia tiene una gran afinidad con la carrera, ya que en el desarrollo de software es necesario comunicarse constantemente con <strong>compañeros, instructores y clientes</strong> para comprender necesidades, resolver problemas y construir soluciones tecnológicas de manera eficiente. Un desarrollador que sabe comunicar sus ideas tiene un impacto multiplicador en cualquier equipo de trabajo.
         </p>
       </article>
     </section>
 
+    <!-- INTEGRANTES -->
     <section class="section" id="integrantes">
       <h2 class="section-title"><i class="fas fa-users"></i> Integrantes</h2>
       <div class="grid-3">
         <article class="card profile-card">
           <img src="gabriel.jpg" alt="Gabriel Mesa" />
           <div class="info">
-            <h3><i class="fas fa-camera-retro"></i> Gabriel Mesa</h3>
-            <p class="role">Desarrollador en software Backend y frontend</p>
-            <p>aprendiz de Análisis y Desarrollo de Software, autodidacta por naturaleza y con muchas ganas de crecer en el mundo tech. Se caracteriza por su iniciativa, su disposición para aprender y su interés en desarrollar soluciones tanto del lado del cliente como del servidor.</p>
-            <a href="gabriel.html" class="cta"><i class="fas fa-arrow-right"></i> Ver perfil</a>
+            <h3><i class="fas fa-code"></i> Gabriel Mesa</h3>
+            <p class="role">Desarrollador en software Backend y Frontend</p>
+            <p>Aprendiz de Análisis y Desarrollo de Software, autodidacta por naturaleza y con muchas ganas de crecer en el mundo tech. Se caracteriza por su iniciativa, su disposición para aprender y su interés en desarrollar soluciones tanto del lado del cliente como del servidor.</p>
+            <a href="gabriel.html" class="cta"><i class="fas fa-arrow-right"></i> Ver perfil completo</a>
           </div>
         </article>
 
         <article class="card profile-card">
           <img src="erick.jpeg" alt="Erick Camargo" />
           <div class="info">
-            <h3><i class="fas fa-video"></i> Erick Camargo</h3>
+            <h3><i class="fas fa-server"></i> Erick Camargo</h3>
             <p class="role">Desarrollador en software Backend</p>
-            <p>Desarrollador web Full Stack. Se caracteriza por su compromiso con el aprendizaje de programación, lógica y desarrollo de aplicaciones.</p>
-            <a href="erick.html" class="cta"><i class="fas fa-arrow-right"></i> Ver perfil</a>
+            <p>Desarrollador web Full Stack. Se caracteriza por su compromiso con el aprendizaje de programación, lógica y desarrollo de aplicaciones. Su enfoque en el backend le permite construir sistemas robustos y eficientes.</p>
+            <a href="erick.html" class="cta"><i class="fas fa-arrow-right"></i> Ver perfil completo</a>
           </div>
         </article>
       </div>
     </section>
+
+    <!-- CARRUSEL DE REFLEXIONES -->
+    <section class="section" id="carrusel-section">
+      <h2 class="section-title"><i class="fas fa-quote-left"></i> Reflexiones del Equipo</h2>
+      <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Slide 1 -->
+          <div class="carousel-slide active">
+            <div class="carousel-card">
+              <div class="carousel-icon"><i class="fas fa-brain"></i></div>
+              <blockquote>"La comunicación es una habilidad fundamental para cualquier profesional, especialmente en el área de desarrollo de software. Sin ella, el código más perfecto del mundo pierde su propósito."</blockquote>
+              <cite>— Reflexión del equipo ADSO</cite>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <div class="carousel-card">
+              <div class="carousel-icon"><i class="fas fa-comments"></i></div>
+              <blockquote>"No solo se trata de hablar, sino también de saber escuchar, interpretar mensajes y expresar ideas con respeto y claridad. La escucha activa es el superpoder más subestimado."</blockquote>
+              <cite>— Sobre comunicación efectiva</cite>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <div class="carousel-card">
+              <div class="carousel-icon"><i class="fas fa-handshake"></i></div>
+              <blockquote>"Expresar ideas con claridad, escuchar activamente y trabajar en equipo no es opcional: es la base para lograr mejores resultados en cualquier proyecto profesional."</blockquote>
+              <cite>— Comunicación asertiva</cite>
+            </div>
+          </div>
+          <!-- Slide 4 -->
+          <div class="carousel-slide">
+            <div class="carousel-card">
+              <div class="carousel-icon"><i class="fas fa-face-smile"></i></div>
+              <blockquote>"Las microexpresiones revelan emociones verdaderas. Aprender a leerlas nos ayuda a comprender mejor a los demás, incluso cuando dicen 'estoy bien' pero su rostro cuenta otra historia."</blockquote>
+              <cite>— Lenguaje no verbal</cite>
+            </div>
+          </div>
+          <!-- Slide 5 -->
+          <div class="carousel-slide">
+            <div class="carousel-card">
+              <div class="carousel-icon"><i class="fas fa-rocket"></i></div>
+              <blockquote>"En el desarrollo de software es necesario comunicarse constantemente con compañeros, instructores y clientes. Un equipo que se entiende bien construye mejores soluciones."</blockquote>
+              <cite>— Comunicación en tech</cite>
+            </div>
+          </div>
+          <!-- Slide 6 -->
+          <div class="carousel-slide">
+            <div class="carousel-card">
+              <div class="carousel-icon"><i class="fas fa-bullseye"></i></div>
+              <blockquote>"Comunicar bien no es un talento natural, es una habilidad que se entrena. Cada reunión, cada email y cada presentación es una oportunidad para mejorar."</blockquote>
+              <cite>— Crecimiento profesional</cite>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-btn--prev" onclick="carouselPrev()" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn carousel-btn--next" onclick="carouselNext()" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </section>
+
+    <!-- CARRUSEL DE VIDEOS -->
+    <section class="section" id="videos">
+      <h2 class="section-title"><i class="fas fa-play-circle"></i> Videos sobre Comunicación</h2>
+      <p class="text-center">Videos seleccionados que complementan las temáticas vistas en clase. Dale play para profundizar en cada tema.</p>
+      <div class="carousel-container video-carousel">
+        <div class="carousel-track" id="videoCarouselTrack">
+          <!-- Video 1 -->
+          <div class="carousel-slide vslide active">
+            <div class="carousel-card video-card">
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/ZgmSfdE2y-s" title="Comunicación Asertiva" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <h3><i class="fas fa-handshake"></i> Comunicación Asertiva</h3>
+              <p class="text">Aprende a expresar tus ideas con claridad y respeto, sin agredir ni someterte. La base de las relaciones profesionales saludables.</p>
+            </div>
+          </div>
+          <!-- Video 2 -->
+          <div class="carousel-slide vslide">
+            <div class="carousel-card video-card">
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/_M6ThnQMZuI" title="Microexpresiones" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <h3><i class="fas fa-face-smile"></i> Microexpresiones</h3>
+              <p class="text">Descubre cómo las expresiones faciales involuntarias de medio segundo revelan lo que realmente sienten las personas.</p>
+            </div>
+          </div>
+          <!-- Video 3 -->
+          <div class="carousel-slide vslide">
+            <div class="carousel-card video-card">
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/a2EnTf5NISo" title="Funciones del Lenguaje" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <h3><i class="fas fa-language"></i> Funciones del Lenguaje</h3>
+              <p class="text">Explora las diferentes funciones del lenguaje: referencial, emotiva, apelativa y poética, con ejemplos prácticos.</p>
+            </div>
+          </div>
+          <!-- Video 4 -->
+          <div class="carousel-slide vslide">
+            <div class="carousel-card video-card">
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/EIK-Ot6tkfU" title="Tipos de Comunicación" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <h3><i class="fas fa-share-nodes"></i> Tipos de Comunicación</h3>
+              <p class="text">Verbal, no verbal, escrita y digital: conoce los canales de comunicación y cuándo usar cada uno.</p>
+            </div>
+          </div>
+          <!-- Video 5 -->
+          <div class="carousel-slide vslide">
+            <div class="carousel-card video-card">
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/Bw4ZLVTarSA" title="Lenguaje No Verbal" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <h3><i class="fas fa-users"></i> Lenguaje No Verbal</h3>
+              <p class="text">El 55% de la comunicación emocional es corporal. Aprende a leer gestos, posturas y señales del cuerpo.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn vcarousel-btn vcarousel-btn--prev" onclick="videoCarouselPrev()" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn vcarousel-btn vcarousel-btn--next" onclick="videoCarouselNext()" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-dots" id="videoCarouselDots"></div>
+      </div>
+    </section>
+
+    <!-- GALERÍA DE EVIDENCIAS -->
+    <section class="section" id="galeria">
+      <h2 class="section-title"><i class="fas fa-images"></i> Galería de Evidencias</h2>
+      <p class="text-center">Explora los documentos y actividades que respaldan nuestro aprendizaje en cada temática.</p>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-gallery="all"><i class="fas fa-layer-group"></i> Todas</button>
+        <button class="filter-btn" data-gallery="gabriel"><i class="fas fa-user"></i> Gabriel</button>
+        <button class="filter-btn" data-gallery="erick"><i class="fas fa-user"></i> Erick</button>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Evidencias Gabriel -->
+        <div class="gallery-item filterable-gallery" data-author="gabriel" data-title="Función referencial" data-pdf="pdfs_de_gabriel/funcion_referencial.pdf">
+          <div class="gallery-thumb gallery-thumb--referencial">
+            <i class="fas fa-language"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Función referencial</h4>
+            <span class="gallery-author">Gabriel Mesa</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_gabriel/funcion_referencial.pdf', 'Función referencial')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <div class="gallery-item filterable-gallery" data-author="gabriel" data-title="Sapa Caramelo" data-pdf="pdfs_de_gabriel/sapa_caramelo.pdf">
+          <div class="gallery-thumb gallery-thumb--masks">
+            <i class="fas fa-masks-theater"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Sapa Caramelo</h4>
+            <span class="gallery-author">Gabriel Mesa</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_gabriel/sapa_caramelo.pdf', 'Sapa Caramelo')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <div class="gallery-item filterable-gallery" data-author="gabriel" data-title="Microexpresiones" data-pdf="pdfs_de_gabriel/microexpresiones.pdf">
+          <div class="gallery-thumb gallery-thumb--micro">
+            <i class="fas fa-eye"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Microexpresiones</h4>
+            <span class="gallery-author">Gabriel Mesa</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_gabriel/microexpresiones.pdf', 'Microexpresiones')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <div class="gallery-item filterable-gallery" data-author="gabriel" data-title="Tipos de comunicación" data-pdf="pdfs_de_gabriel/tipos_comunicacion.pdf">
+          <div class="gallery-thumb gallery-thumb--tipos">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Tipos de comunicación</h4>
+            <span class="gallery-author">Gabriel Mesa</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_gabriel/tipos_comunicacion.pdf', 'Tipos de comunicación')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <!-- Evidencias Erick -->
+        <div class="gallery-item filterable-gallery" data-author="erick" data-title="Funciones del lenguaje" data-pdf="pdfs_de_erick/funciones_del_lenguaje.pdf">
+          <div class="gallery-thumb gallery-thumb--lenguaje">
+            <i class="fas fa-language"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Funciones del lenguaje</h4>
+            <span class="gallery-author">Erick Camargo</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_erick/funciones_del_lenguaje.pdf', 'Funciones del lenguaje')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <div class="gallery-item filterable-gallery" data-author="erick" data-title="La Sapa Caramelo" data-pdf="pdfs_de_erick/la_sapa_caramelo.pdf">
+          <div class="gallery-thumb gallery-thumb--masks">
+            <i class="fas fa-masks-theater"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>La Sapa Caramelo</h4>
+            <span class="gallery-author">Erick Camargo</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_erick/la_sapa_caramelo.pdf', 'La Sapa Caramelo')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <div class="gallery-item filterable-gallery" data-author="erick" data-title="Microexpresiones" data-pdf="pdfs_de_erick/microexpresiones.pdf">
+          <div class="gallery-thumb gallery-thumb--micro">
+            <i class="fas fa-eye"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Microexpresiones</h4>
+            <span class="gallery-author">Erick Camargo</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_erick/microexpresiones.pdf', 'Microexpresiones')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <div class="gallery-item filterable-gallery" data-author="erick" data-title="Tipos de comunicación" data-pdf="pdfs_de_erick/tipos_de_comunicacion.pdf">
+          <div class="gallery-thumb gallery-thumb--tipos">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Tipos de comunicación</h4>
+            <span class="gallery-author">Erick Camargo</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_erick/tipos_de_comunicacion.pdf', 'Tipos de comunicación')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+      </div>
+      <div id="noGalleryResults" class="no-results" hidden>
+        <i class="fas fa-images"></i>
+        <p>No se encontraron evidencias para este filtro.</p>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <section class="section" id="contacto">
+      <h2 class="section-title"><i class="fas fa-envelope"></i> Contáctanos</h2>
+      <p class="text-center">¿Tienes preguntas, sugerencias o quieres colaborar con nosotros? Escríbenos y te responderemos lo antes posible.</p>
+      <article class="section-card contact-card">
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactName"><i class="fas fa-user"></i> Nombre</label>
+              <input type="text" id="contactName" name="name" placeholder="Tu nombre completo" required />
+              <span class="form-error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="contactEmail"><i class="fas fa-envelope"></i> Correo</label>
+              <input type="email" id="contactEmail" name="email" placeholder="tu@correo.com" required />
+              <span class="form-error" id="emailError"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contactSubject"><i class="fas fa-tag"></i> Asunto</label>
+            <select id="contactSubject" name="subject" required>
+              <option value="">Selecciona un asunto</option>
+              <option value="consulta">Consulta general</option>
+              <option value="evidencia">Sobre las evidencias</option>
+              <option value="colaboracion">Propuesta de colaboración</option>
+              <option value="otro">Otro</option>
+            </select>
+            <span class="form-error" id="subjectError"></span>
+          </div>
+          <div class="form-group">
+            <label for="contactMessage"><i class="fas fa-comment-dots"></i> Mensaje</label>
+            <textarea id="contactMessage" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            <span class="form-error" id="messageError"></span>
+            <span class="char-count"><span id="charCount">0</span>/500</span>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submitBtn"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
+            <button type="reset" class="btn btn-secondary" onclick="resetForm()"><i class="fas fa-rotate-left"></i> Limpiar</button>
+          </div>
+          <div id="formStatus" class="form-status" hidden></div>
+        </form>
+      </article>
+    </section>
   </main>
+
+  <!-- Botón volver arriba -->
+  <button id="backToTop" class="back-to-top" aria-label="Volver arriba" title="Volver al inicio">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- MODAL PDF -->
+  <div id="pdfModal" class="modal" hidden>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle"><i class="fas fa-file-pdf"></i> <span></span></h3>
+        <button class="modal-close" onclick="closePdfModal()" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <iframe id="pdfFrame" src="" title="Visor PDF"></iframe>
+        <p class="modal-fallback">Si no puedes ver el PDF, <a id="pdfLink" href="#" target="_blank">haz clic aquí para abrirlo</a>.</p>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

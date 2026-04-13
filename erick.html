@@ -4,89 +4,239 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perfil Erick</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1VJm5kJHVw8+LL+1ZiowH++4df5uVBXxEehumOhv1Vd4iRAHWY8MklND6U9G5mcbaiYpJZwciMJw7Z4xJbeyrg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Perfil Erick — Blog Comunicación</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <header>
-    <h1>Perfil del Integrante</h1>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="header-left">
+      <h1><i class="fas fa-blog"></i> Blog Comunicación</h1>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar en el blog..." autocomplete="off" />
+      <button class="search-btn" onclick="performSearch()" aria-label="Buscar"><i class="fas fa-magnifying-glass"></i></button>
+      <div id="searchResults" class="search-results" hidden></div>
+    </div>
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema" title="Modo oscuro/claro">
+        <i class="fas fa-moon"></i>
+      </button>
+      <div class="menu-icon" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></div>
+    </div>
     <nav id="menu">
       <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
       <a href="gabriel.html"><i class="fas fa-user"></i> Perfil Gabriel</a>
       <a href="erick.html"><i class="fas fa-user"></i> Perfil Erick</a>
-      <a href="#descripcion"><i class="fas fa-info-circle"></i> Descripción</a>
-      <a href="#aprendido"><i class="fas fa-graduation-cap"></i> Lo Aprendido</a>
-      <a href="#futuro"><i class="fas fa-rocket"></i> Proyección Futura</a>
+      <a href="index.html#temas"><i class="fas fa-book-open"></i> Temas</a>
+      <a href="index.html#videos"><i class="fas fa-play-circle"></i> Videos</a>
+      <a href="index.html#galeria"><i class="fas fa-images"></i> Galería</a>
+      <a href="index.html#contacto"><i class="fas fa-envelope"></i> Contacto</a>
     </nav>
   </header>
   <div id="menuOverlay" class="menu-overlay" onclick="closeMenu()" hidden></div>
 
+  <div id="scrollProgress" class="scroll-progress"></div>
+
   <main>
+    <!-- HERO PERFIL -->
+    <section class="profile-hero">
+      <div class="profile-hero-visual">
+        <img src="erick.jpeg" alt="Erick Camargo" class="profile-hero-img" />
+        <div class="profile-hero-ring"></div>
+        <div class="profile-hero-ring ring--2"></div>
+      </div>
+      <div class="profile-hero-content">
+        <span class="hero-badge"><i class="fas fa-server"></i> Desarrollador Backend</span>
+        <h1 class="hero-title">Erick Camargo</h1>
+        <p class="hero-subtitle">
+          Desarrollador web Full Stack comprometido con el aprendizaje de programación, lógica de sistemas y desarrollo de aplicaciones robustas y eficientes.
+        </p>
+        <div class="profile-stats">
+          <div class="stat-pill">
+            <i class="fas fa-database"></i>
+            <span>Backend Focus</span>
+          </div>
+          <div class="stat-pill">
+            <i class="fas fa-graduation-cap"></i>
+            <span>ADSO SENA</span>
+          </div>
+          <div class="stat-pill">
+            <i class="fas fa-bolt"></i>
+            <span>Full Stack</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <h2 class="section-title"><i class="fas fa-wand-magic-sparkles"></i> Habilidades y Fortalezas</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-database"></i></div>
+          <h3>Backend y Bases de Datos</h3>
+          <p class="text">Diseño de sistemas del lado del servidor, APIs REST y gestión eficiente de datos.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
+          <h3>Lógica de Programación</h3>
+          <p class="text">Resolución de problemas complejos con algoritmos eficientes y código limpio.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-comments"></i></div>
+          <h3>Comunicación en Equipo</h3>
+          <p class="text">Capacidad de colaborar, explicar ideas técnicas y coordinar tareas en proyectos grupales.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Aprendizaje Continuo</h3>
+          <p class="text">Compromiso con la formación constante, explorando nuevas tecnologías y metodologías.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
     <section class="section" id="descripcion">
-      <article class="section-card">
-        <h2 class="section-title"><i class="fas fa-user-circle"></i> Erick Camargo</h2>
+      <article class="section-card highlight-card">
+        <div class="highlight-badge"><i class="fas fa-user"></i> Sobre mí</div>
         <p>
-          Personalmente, esta materia me permitió comprender que la comunicación es una habilidad muy importante tanto en la vida personal como en el ámbito profesional. Aprendí que no solo se trata de hablar, sino también de saber escuchar, interpretar mensajes y expresar ideas con respeto y claridad. Considero que estos aprendizajes serán muy útiles en mi formación como desarrollador de software, ya que el trabajo en tecnología requiere una buena comunicación para trabajar en equipo y entender las necesidades de los usuarios.
+          Personalmente, esta materia me permitió comprender que la comunicación es una habilidad muy importante tanto en la vida personal como en el ámbito profesional. Aprendí que no solo se trata de hablar, sino también de <strong>saber escuchar, interpretar mensajes y expresar ideas con respeto y claridad</strong>.
+        </p>
+        <p>
+          Considero que estos aprendizajes serán muy útiles en mi formación como desarrollador de software, ya que el trabajo en tecnología requiere una buena comunicación para trabajar en equipo y entender las necesidades de los usuarios.
         </p>
       </article>
     </section>
 
+    <!-- REFLEXIÓN DEL RETO -->
     <section class="section" id="reto">
       <article class="section-card">
         <h2 class="section-title"><i class="fas fa-lightbulb"></i> Reflexión del reto: Tipos de Comunicación</h2>
         <p>
-          Durante el desarrollo del reto sobre los tipos de comunicación comprendimos que existen diferentes formas de transmitir un mensaje, como la comunicación verbal, no verbal y escrita. Este ejercicio nos permitió reflexionar sobre la importancia de expresarnos con claridad y también de saber interpretar correctamente los mensajes de los demás. Entendimos que una buena comunicación es fundamental para mejorar las relaciones personales, académicas y profesionales.
+          Durante el desarrollo del reto sobre los tipos de comunicación comprendimos que existen diferentes formas de transmitir un mensaje, como la comunicación <strong>verbal, no verbal y escrita</strong>. Este ejercicio nos permitió reflexionar sobre la importancia de expresarnos con claridad y también de saber interpretar correctamente los mensajes de los demás.
         </p>
+        <div class="reflection-quote">
+          <i class="fas fa-quote-left"></i>
+          <blockquote>Entendimos que una buena comunicación es fundamental para mejorar las relaciones personales, académicas y profesionales.</blockquote>
+        </div>
       </article>
     </section>
 
-    <section class="section" id="evidencias">
-      <h2 class="section-title"><i class="fas fa-file-alt"></i> Evidencias</h2>
-      <div class="grid-3">
-        <article class="card">
-          <h3><i class="fas fa-file-pdf"></i> Función Referencial</h3>
-          <p class="text">PDF sobre la función referencial del lenguaje.</p>
-          <a href="pdfs_de_erick/funciones%20del%20Lenguaje.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
-        </article>
-        <article class="card">
-          <h3><i class="fas fa-file-pdf"></i> Sapa Caramelo</h3>
-          <p class="text">Actividad en clase sobre lo que se oculta de cada persona</p>
-          <a href="pdfs_de_erick/la%20sapa%20caramelo.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
-        </article>
-        <article class="card">
-          <h3><i class="fas fa-file-pdf"></i> Lenguaje de las Microexpresiones</h3>
-          <p class="text">Estudio sobre microexpresiones.</p>
-          <a href="pdfs_de_erick/microexpresiones.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
-        </article>
-        <article class="card">
-          <h3><i class="fas fa-file-pdf"></i> Tipos de Comunicación</h3>
-          <p class="text">Clasificación y ejemplos de tipos de comunicación.</p>
-          <a href="pdfs_de_erick/tipos%20de%20comunicacion.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
-        </article>
-      </div>
-    </section>
-
+    <!-- LO QUE APRENDÍ -->
     <section class="section" id="aprendido">
       <article class="section-card">
         <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Lo que Aprendí</h2>
         <p>
-          En esta materia, aprendí la importancia de la comunicación asertiva, verbal y no verbal. Comprendí cómo las microexpresiones revelan emociones verdaderas y cómo adaptar el mensaje según el contexto. Estos conocimientos me han ayudado a mejorar mis interacciones personales y profesionales.
+          En esta materia, aprendí la importancia de la comunicación asertiva, verbal y no verbal. Comprendí cómo las microexpresiones revelan emociones verdaderas y cómo adaptar el mensaje según el contexto.
         </p>
+        <div class="learning-list">
+          <div class="learning-item"><i class="fas fa-circle-check"></i> La comunicación asertiva como base de relaciones profesionales</div>
+          <div class="learning-item"><i class="fas fa-circle-check"></i> Las microexpresiones como ventanas a emociones genuinas</div>
+          <div class="learning-item"><i class="fas fa-circle-check"></i> Adaptar el mensaje según el contexto y el canal de comunicación</div>
+          <div class="learning-item"><i class="fas fa-circle-check"></i> La congruencia entre lo que decimos y cómo lo mostramos</div>
+          <div class="learning-item"><i class="fas fa-circle-check"></i> Trabajo en equipo con comunicación clara y respetuosa</div>
+        </div>
       </article>
     </section>
 
+    <!-- PROYECCIÓN A FUTURO -->
     <section class="section" id="futuro">
       <article class="section-card">
         <h2 class="section-title"><i class="fas fa-rocket"></i> Proyección a Futuro</h2>
         <p>
-          Mi proyección futura incluye especializarme en desarrollo backend, integrando habilidades de comunicación para liderar equipos y gestionar proyectos. Aspiro a trabajar en empresas tecnológicas, contribuyendo a soluciones innovadoras mientras mejoro continuamente mis competencias en comunicación efectiva.
+          Mi proyección futura incluye especializarme en desarrollo <strong>backend</strong>, integrando habilidades de comunicación para liderar equipos y gestionar proyectos. Aspiro a trabajar en empresas tecnológicas, contribuyendo a soluciones innovadoras mientras mejoro continuamente mis competencias en comunicación efectiva.
         </p>
+        <div class="future-goals">
+          <div class="goal-card">
+            <div class="goal-icon"><i class="fas fa-server"></i></div>
+            <h4>Especialización Backend</h4>
+            <p class="text">Profundizar en arquitectura de servidores, APIs y bases de datos de alto rendimiento.</p>
+          </div>
+          <div class="goal-card">
+            <div class="goal-icon"><i class="fas fa-users"></i></div>
+            <h4>Liderazgo de Equipos</h4>
+            <p class="text">Usar la comunicación efectiva para coordinar y motivar equipos de desarrollo.</p>
+          </div>
+          <div class="goal-card">
+            <div class="goal-icon"><i class="fas fa-building"></i></div>
+            <h4>Industria Tecnológica</h4>
+            <p class="text">Contribuir a empresas tech con soluciones innovadoras y comunicación transparente.</p>
+          </div>
+        </div>
       </article>
     </section>
+
+    <!-- EVIDENCIAS -->
+    <section class="section" id="evidencias">
+      <h2 class="section-title"><i class="fas fa-folder-open"></i> Mis Evidencias</h2>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item filterable-gallery" data-author="erick" data-title="Funciones del lenguaje" data-pdf="pdfs_de_erick/funciones_del_lenguaje.pdf">
+          <div class="gallery-thumb">
+            <i class="fas fa-language"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Funciones del lenguaje</h4>
+            <span class="gallery-author">Erick Camargo</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_erick/funciones_del_lenguaje.pdf', 'Funciones del lenguaje')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <div class="gallery-item filterable-gallery" data-author="erick" data-title="La Sapa Caramelo" data-pdf="pdfs_de_erick/la_sapa_caramelo.pdf">
+          <div class="gallery-thumb">
+            <i class="fas fa-masks-theater"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>La Sapa Caramelo</h4>
+            <span class="gallery-author">Erick Camargo</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_erick/la_sapa_caramelo.pdf', 'La Sapa Caramelo')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <div class="gallery-item filterable-gallery" data-author="erick" data-title="Microexpresiones" data-pdf="pdfs_de_erick/microexpresiones.pdf">
+          <div class="gallery-thumb">
+            <i class="fas fa-eye"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Microexpresiones</h4>
+            <span class="gallery-author">Erick Camargo</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_erick/microexpresiones.pdf', 'Microexpresiones')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <div class="gallery-item filterable-gallery" data-author="erick" data-title="Tipos de comunicación" data-pdf="pdfs_de_erick/tipos_de_comunicacion.pdf">
+          <div class="gallery-thumb">
+            <i class="fas fa-people-arrows"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Tipos de comunicación</h4>
+            <span class="gallery-author">Erick Camargo</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_erick/tipos_de_comunicacion.pdf', 'Tipos de comunicación')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- Botón volver arriba -->
+  <button id="backToTop" class="back-to-top" aria-label="Volver arriba" title="Volver al inicio">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- MODAL PDF -->
+  <div id="pdfModal" class="modal" hidden>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle"><i class="fas fa-file-pdf"></i> <span></span></h3>
+        <button class="modal-close" onclick="closePdfModal()" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <iframe id="pdfFrame" src="" title="Visor PDF"></iframe>
+        <p class="modal-fallback">Si no puedes ver el PDF, <a id="pdfLink" href="#" target="_blank">haz clic aquí para abrirlo</a>.</p>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

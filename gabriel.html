@@ -4,39 +4,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perfil Gabriel</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1VJm5kJHVw8+LL+1ZiowH++4df5uVBXxEehumOhv1Vd4iRAHWY8MklND6U9G5mcbaiYpJZwciMJw7Z4xJbeyrg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Perfil Gabriel — Blog Comunicación</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <header>
-    <h1>Perfil del Integrante</h1>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="header-left">
+      <h1><i class="fas fa-blog"></i> Blog Comunicación</h1>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar en el blog..." autocomplete="off" />
+      <button class="search-btn" onclick="performSearch()" aria-label="Buscar"><i class="fas fa-magnifying-glass"></i></button>
+      <div id="searchResults" class="search-results" hidden></div>
+    </div>
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema" title="Modo oscuro/claro">
+        <i class="fas fa-moon"></i>
+      </button>
+      <div class="menu-icon" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></div>
+    </div>
     <nav id="menu">
       <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
       <a href="gabriel.html"><i class="fas fa-user"></i> Perfil Gabriel</a>
       <a href="erick.html"><i class="fas fa-user"></i> Perfil Erick</a>
-      <a href="#descripcion"><i class="fas fa-info-circle"></i> Descripción</a>
-      <a href="#aprendido"><i class="fas fa-graduation-cap"></i> Lo Aprendido</a>
-      <a href="#futuro"><i class="fas fa-rocket"></i> Proyección Futura</a>
+      <a href="index.html#temas"><i class="fas fa-book-open"></i> Temas</a>
+      <a href="index.html#videos"><i class="fas fa-play-circle"></i> Videos</a>
+      <a href="index.html#galeria"><i class="fas fa-images"></i> Galería</a>
+      <a href="index.html#contacto"><i class="fas fa-envelope"></i> Contacto</a>
     </nav>
   </header>
   <div id="menuOverlay" class="menu-overlay" onclick="closeMenu()" hidden></div>
 
+  <div id="scrollProgress" class="scroll-progress"></div>
+
   <main>
+    <!-- HERO PERFIL -->
+    <section class="profile-hero">
+      <div class="profile-hero-visual">
+        <img src="gabriel.jpg" alt="Gabriel Mesa" class="profile-hero-img" />
+        <div class="profile-hero-ring"></div>
+        <div class="profile-hero-ring ring--2"></div>
+      </div>
+      <div class="profile-hero-content">
+        <span class="hero-badge"><i class="fas fa-code"></i> Desarrollador Full Stack</span>
+        <h1 class="hero-title">Gabriel Mesa</h1>
+        <p class="hero-subtitle">
+          Aprendiz de Análisis y Desarrollo de Software, autodidacta por naturaleza, con pasión por construir soluciones tanto del lado del cliente como del servidor.
+        </p>
+        <div class="profile-stats">
+          <div class="stat-pill">
+            <i class="fas fa-laptop-code"></i>
+            <span>Backend + Frontend</span>
+          </div>
+          <div class="stat-pill">
+            <i class="fas fa-graduation-cap"></i>
+            <span>ADSO SENA</span>
+          </div>
+          <div class="stat-pill">
+            <i class="fas fa-fire"></i>
+            <span>Autodidacta</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <h2 class="section-title"><i class="fas fa-wand-magic-sparkles"></i> Habilidades y Fortalezas</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-server"></i></div>
+          <h3>Desarrollo Backend</h3>
+          <p class="text">Construcción de APIs, lógica de negocio y bases de datos con enfoque en eficiencia y seguridad.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-palette"></i></div>
+          <h3>Desarrollo Frontend</h3>
+          <p class="text">Interfaces modernas y responsivas con HTML, CSS y JavaScript, priorizando la experiencia del usuario.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-comments"></i></div>
+          <h3>Comunicación Efectiva</h3>
+          <p class="text">Capacidad de expresar ideas técnicas de forma clara a equipos y stakeholders no técnicos.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-users-gear"></i></div>
+          <h3>Trabajo en Equipo</h3>
+          <p class="text">Colaboración activa, resolución de conflictos y liderazgo en proyectos de desarrollo grupal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
     <section class="section" id="descripcion">
-      <article class="section-card">
-        <h2 class="section-title"><i class="fas fa-user-circle"></i> Gabriel Mesa</h2>
+      <article class="section-card highlight-card">
+        <div class="highlight-badge"><i class="fas fa-user"></i> Sobre mí</div>
         <p>
-          Gabriel Mesa es aprendiz del programa Análisis y Desarrollo de Software.
-          Se caracteriza por su compromiso con el aprendizaje, el trabajo en
+          Gabriel Mesa es aprendiz del programa <strong>Análisis y Desarrollo de Software</strong>.
+          Se caracteriza por su compromiso con el aprendizaje continuo, el trabajo en
           equipo y el desarrollo de habilidades que le permitan mejorar su
           desempeño académico y profesional.
+        </p>
+        <p>
+          Su enfoque autodidacta lo impulsa a explorar nuevas tecnologías por su cuenta,
+          desde frameworks web hasta herramientas de versionado como Git. Siempre busca
+          oportunidades para crecer y aplicar lo aprendido en proyectos reales.
         </p>
       </article>
     </section>
 
+    <!-- REFLEXIÓN DEL RETO -->
     <section class="section" id="reto">
       <article class="section-card">
         <h2 class="section-title"><i class="fas fa-lightbulb"></i> Reflexión del reto: Tipos de Comunicación</h2>
@@ -46,59 +125,132 @@
           verbal, no verbal y escrita influyen en la manera en que los mensajes
           son interpretados por las personas.
         </p>
+        <div class="reflection-quote">
+          <i class="fas fa-quote-left"></i>
+          <blockquote>Comunicar no es solo hablar — es saber elegir las palabras correctas, el momento adecuado y el canal apropiado para que el mensaje realmente llegue.</blockquote>
+        </div>
       </article>
     </section>
 
-    <section class="section" id="evidencias">
-      <h2 class="section-title"><i class="fas fa-file-alt"></i> Evidencias</h2>
-      <div class="grid-3">
-        <article class="card">
-          <h3><i class="fas fa-file-pdf"></i> Función Referencial</h3>
-          <p class="text">Documento PDF sobre la función referencial del lenguaje.</p>
-          <a href="pdfs_de_gabriel/funcion_referencial.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
-        </article>
-        <article class="card">
-          <h3><i class="fas fa-file-pdf"></i> Sapa Caramelo</h3>
-          <p class="text">Análisis de comunicación en contexto.</p>
-          <a href="pdfs_de_gabriel/sapa_caramelo.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
-        </article>
-        <article class="card">
-          <h3><i class="fas fa-file-pdf"></i> Lenguaje de las Microexpresiones</h3>
-          <p class="text">Estudio sobre microexpresiones faciales.</p>
-          <a href="pdfs_de_gabriel/microexpresiones.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
-        </article>
-        <article class="card">
-          <h3><i class="fas fa-file-pdf"></i> Tipos de Comunicación</h3>
-          <p class="text">Clasificación y ejemplos de tipos de comunicación.</p>
-          <a href="pdfs_de_gabriel/tipos_comunicacion.pdf" target="_blank" class="cta"><i class="fas fa-external-link-alt"></i> Ver PDF</a>
-        </article>
-      </div>
-    </section>
-
+    <!-- LO QUE APRENDÍ -->
     <section class="section" id="aprendido">
       <article class="section-card">
-        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Lo que Aprendi</h2>
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Lo que Aprendí</h2>
         <p>
           Durante este trimestre aprendí que la comunicación es una habilidad
-          fundamental en cualquier entorno. Comprendí que escuchar activamente,
+          fundamental en cualquier entorno. Comprendí que <strong>escuchar activamente</strong>,
           expresar ideas con respeto y entender diferentes puntos de vista son
           aspectos esenciales para una comunicación efectiva.
         </p>
+        <div class="learning-list">
+          <div class="learning-item"><i class="fas fa-circle-check"></i> La importancia de la escucha activa en conversaciones profesionales</div>
+          <div class="learning-item"><i class="fas fa-circle-check"></i> Cómo las microexpresiones revelan lo que realmente sienten las personas</div>
+          <div class="learning-item"><i class="fas fa-circle-check"></i> Adaptar el mensaje según el contexto y el receptor</div>
+          <div class="learning-item"><i class="fas fa-circle-check"></i> La congruencia entre lenguaje verbal y no verbal</div>
+          <div class="learning-item"><i class="fas fa-circle-check"></i> Comunicación asertiva como herramienta de resolución de conflictos</div>
+        </div>
       </article>
     </section>
 
+    <!-- PROYECCIÓN A FUTURO -->
     <section class="section" id="futuro">
       <article class="section-card">
         <h2 class="section-title"><i class="fas fa-rocket"></i> Proyección a Futuro</h2>
         <p>
           En el futuro, espero aplicar estos conocimientos en proyectos de desarrollo
           de software, mejorando la comunicación en equipos remotos y con clientes.
-          Mi meta es convertirme en un desarrollador full-stack que no solo codifica
+          Mi meta es convertirme en un <strong>desarrollador full-stack</strong> que no solo codifica
           bien, sino que también comunica ideas de manera clara y efectiva.
         </p>
+        <div class="future-goals">
+          <div class="goal-card">
+            <div class="goal-icon"><i class="fas fa-code"></i></div>
+            <h4>Especialización Full-Stack</h4>
+            <p class="text">Dominar tanto frontend como backend para construir soluciones completas.</p>
+          </div>
+          <div class="goal-card">
+            <div class="goal-icon"><i class="fas fa-briefcase"></i></div>
+            <h4>Experiencia profesional</h4>
+            <p class="text">Trabajar en equipos de desarrollo con metodologías ágiles y comunicación efectiva.</p>
+          </div>
+          <div class="goal-card">
+            <div class="goal-icon"><i class="fas fa-comments"></i></div>
+            <h4>Liderazgo comunicativo</h4>
+            <p class="text">Ser capaz de presentar ideas técnicas a audiencias no técnicas con claridad.</p>
+          </div>
+        </div>
       </article>
     </section>
+
+    <!-- EVIDENCIAS -->
+    <section class="section" id="evidencias">
+      <h2 class="section-title"><i class="fas fa-folder-open"></i> Mis Evidencias</h2>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item filterable-gallery" data-author="gabriel" data-title="Función referencial" data-pdf="pdfs_de_gabriel/funcion_referencial.pdf">
+          <div class="gallery-thumb gallery-thumb--referencial">
+            <i class="fas fa-language"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Función referencial</h4>
+            <span class="gallery-author">Gabriel Mesa</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_gabriel/funcion_referencial.pdf', 'Función referencial')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <div class="gallery-item filterable-gallery" data-author="gabriel" data-title="Sapa Caramelo" data-pdf="pdfs_de_gabriel/sapa_caramelo.pdf">
+          <div class="gallery-thumb gallery-thumb--masks">
+            <i class="fas fa-masks-theater"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Sapa Caramelo</h4>
+            <span class="gallery-author">Gabriel Mesa</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_gabriel/sapa_caramelo.pdf', 'Sapa Caramelo')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <div class="gallery-item filterable-gallery" data-author="gabriel" data-title="Microexpresiones" data-pdf="pdfs_de_gabriel/microexpresiones.pdf">
+          <div class="gallery-thumb gallery-thumb--micro">
+            <i class="fas fa-eye"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Microexpresiones</h4>
+            <span class="gallery-author">Gabriel Mesa</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_gabriel/microexpresiones.pdf', 'Microexpresiones')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+
+        <div class="gallery-item filterable-gallery" data-author="gabriel" data-title="Tipos de comunicación" data-pdf="pdfs_de_gabriel/tipos_comunicacion.pdf">
+          <div class="gallery-thumb gallery-thumb--tipos">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="gallery-info">
+            <h4>Tipos de comunicación</h4>
+            <span class="gallery-author">Gabriel Mesa</span>
+            <button class="gallery-btn" onclick="openPdfModal('pdfs_de_gabriel/tipos_comunicacion.pdf', 'Tipos de comunicación')"><i class="fas fa-eye"></i> Ver</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- Botón volver arriba -->
+  <button id="backToTop" class="back-to-top" aria-label="Volver arriba" title="Volver al inicio">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- MODAL PDF -->
+  <div id="pdfModal" class="modal" hidden>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle"><i class="fas fa-file-pdf"></i> <span></span></h3>
+        <button class="modal-close" onclick="closePdfModal()" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <iframe id="pdfFrame" src="" title="Visor PDF"></iframe>
+        <p class="modal-fallback">Si no puedes ver el PDF, <a id="pdfLink" href="#" target="_blank">haz clic aquí para abrirlo</a>.</p>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
